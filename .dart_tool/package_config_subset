@@ -1,7 +1,3 @@
-awesomitylab
-2.15
-file:///E:/Awesomity/awesomitylab/
-file:///E:/Awesomity/awesomitylab/lib/
 async
 2.12
 file:///E:/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
@@ -98,4 +94,8 @@ flutter_test
 2.12
 file:///E:/flutter/packages/flutter_test/
 file:///E:/flutter/packages/flutter_test/lib/
+awesomitylab
+2.15
+file:///E:/mobile-/
+file:///E:/mobile-/lib/
 2

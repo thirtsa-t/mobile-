@@ -48,13 +48,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                    
                        Card(
-                        margin: const EdgeInsets.only(top: 80.0),
+                        margin: const EdgeInsets.only(top: 80.0 , ),
                         color: Colors.white,
                         elevation: 8,
                         
-                        child: Column(children: const [
+                        child: Column(
+                          
+                          
+                          children: const [
+                            
                           
                           Text(
+                            
                             '0',
                             style: TextStyle(
                                 color: Color(0xffC1CF16), fontSize: 26.0),

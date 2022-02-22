@@ -28,19 +28,28 @@ class _tasksScreenState extends State<tasksScreen> {
                   Image.asset('assets/image/IW_logo.png',
                       fit: BoxFit.contain, height: 42
                       ),
-                  Container(
-                    margin: EdgeInsets.all( 50.0),
+                 
+                      Container(
+
+                        margin: EdgeInsets.only( left:100.0 , top:30),
+                        child: const Icon(
+                          Icons.search,
+                          color: Colors.white,
+                          size: 30.0,
+                        ),
+                      ),
+                    
+                 
+                Container(
+                    margin: EdgeInsets.only( left:200.0),
                     child: const Icon(
-                      Icons.search,
+                      Icons.menu,
                       color: Colors.white,
                       size: 30.0,
                     ),
                   ),
-                  Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                    size: 30.0,
-                  ),
+                  
+                  
                 ],
               ),
             ),

@@ -11,11 +11,12 @@ class _displayTaskState extends State<displayTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: <Widget>[
+        body: Column(
+          children: <Widget>[
       Container(
         margin: EdgeInsets.only(top: 30),
         height: 200,
-        width: 500,
+        width: 400,
         child: Image.asset(
           'assets/image/pic.webp',
           fit: BoxFit.cover,
@@ -24,7 +25,10 @@ class _displayTaskState extends State<displayTask> {
       Row(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 40, right: 130),
+            margin: EdgeInsets.only(
+              top: 40,
+              left: 20,
+            ),
             child: SizedBox(
               width: 100,
               height: 20,
@@ -44,31 +48,28 @@ class _displayTaskState extends State<displayTask> {
               ),
             ),
           ),
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(
-                  top: 40,
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () {},
-                ),
-              ),
-            ],
+          Container(
+            margin: EdgeInsets.only(
+              top: 40,
+              left: 50,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.edit),
+              onPressed: () {},
+            ),
           ),
           Container(
             margin: EdgeInsets.only(
               top: 40,
+              left: 10,
             ),
             child: IconButton(
               icon: const Icon(Icons.close),
               onPressed: () {},
             ),
           ),
-          // ignore: unnecessary_new
           Container(
-            margin: EdgeInsets.only(left: 50),
+            margin: EdgeInsets.only(top: 40),
             child: new SizedBox(
               width: 100.0,
               height: 50.0,
@@ -93,33 +94,65 @@ class _displayTaskState extends State<displayTask> {
       Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 70),
+            padding: EdgeInsets.all(15.0),
+            margin: EdgeInsets.only(top: 70, right: 120),
             child: const Text(
               'Buy hand sanitizers',
               style: TextStyle(
                   color: Color(0xff0C0D0D),
-                  fontSize: 30.0,
+                  fontSize: 25.0,
                   fontWeight: FontWeight.bold),
             ),
           ),
           Container(
-            child:Text('Description',
-             style: TextStyle(
-                  color: Color(0xff0C0D0D),
+              padding: EdgeInsets.all(10.0),
+              margin: EdgeInsets.only(right: 260),
+              child: Text(
+                'Description',
+                style: TextStyle(
+                    color: Color(0xff0C0D0D),
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold),
+              )),
+          Container(
+              margin: EdgeInsets.only(left: 20),
+              child: Text(
+                'Call HB to confirm with the quantity and the price remember the TIN number too',
+                style: TextStyle(
+                    color: Color(0xff0C0D0D),
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.bold),
+              ))
+        ],
+      ),
+      Column(
+        children: [
+          Container(
+
+            margin:EdgeInsets.only(top: 50),
+            child: Text('Created 14 feb 2021 ',
+            style: TextStyle(
+                  color: Color(0xfff4f5f6),
                   fontSize: 10.0,
                   fontWeight: FontWeight.bold),
-            )
-          ),
-            Container(
-            child:Text('Call HB to confirm with the quantity and the price remember the TIN number too',
-             style: TextStyle(
-                  color: Color(0xff0C0D0D),
-                  fontSize: 20.0,
+            ),
+            ),
+          
+                    Container(
+            child: Text('Modified 15 feb 2021 ',
+            style: TextStyle(
+                  color: Color(0xfff4f5f6),
+                  fontSize: 10.0,
                   fontWeight: FontWeight.bold),
-            )
-          )
+            ),
+            ),
+          
+
         ],
       )
-    ]));
+
+    ]
+    )
+    );
   }
 }
