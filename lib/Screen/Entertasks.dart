@@ -201,11 +201,11 @@ class _EnterTasksState extends State<EnterTasks> {
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.grey[200],
-                    hintText: "Task title(140 Characters)",
+                    hintText: "240 Characters",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none),
-                    contentPadding: EdgeInsets.only(left: 10.0),
+                    contentPadding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
                   ),
                   minLines: 3,
                   maxLines: 4,
@@ -276,6 +276,7 @@ class _EnterTasksState extends State<EnterTasks> {
                                   )));
                     }
                   },
+                  
                   child: Text(
                     "CREATE TASK",
                     style: TextStyle(
