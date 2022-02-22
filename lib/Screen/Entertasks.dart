@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:awesomitylab/Screen/tasks.dart';
 import 'package:awesomitylab/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:images_picker/images_picker.dart';
 
 import 'inputdecoration.dart';
 
@@ -11,7 +15,36 @@ class EnterTasks extends StatefulWidget {
   _EnterTasksState createState() => _EnterTasksState();
 }
 
+
 class _EnterTasksState extends State<EnterTasks> {
+  
+GlobalKey<FormState> _formkey = new GlobalKey();
+final image = TextEditingController();
+String? path;
+late String uploadedImage;
+late File file;
+Future pickImage() async {
+  //directory
+  final dir = await getTemporaryDirectory();
+  //select image from gallery
+  List<Media>? res = await ImagesPicker.pick(
+    count: 1,
+    pickType: PickType.image,
+   
+    // maxSize: 500,
+    // cropOpt: CropOption(
+    //   aspectRatio: CropAspectRatio.wh16x9,
+    // ),
+  );
+  print(res);
+  if (res != null) {
+    print(res.map((e) => e.path).toList());
+    
+    setState(() {
+      path = res[0].thumbPath;
+    });
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,40 +84,39 @@ class _EnterTasksState extends State<EnterTasks> {
             //   //padding: EdgeInsets.symmetric(horizontal: 15),
             Column(
               children: [
-                 
-    const Align(
-      alignment: Alignment.centerLeft,
-      
-      
-        child:  Text('addImage',
-        style: TextStyle(color: Color(0xFF0C0D0D),),
-        ),
-
-        ),
-      
-    
-  
-               
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'addImage',
+                    style: TextStyle(
+                      color: Color(0xFF0C0D0D),
+                    ),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
                       top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
                   alignment: Alignment.center,
                   decoration: kBoxDecorationStyle,
-                  height: 60.0,
                   child: TextFormField(
+                    keyboardType: TextInputType.text,
+                     controller:image,
+                    showCursor: true,
+                    readOnly: true,
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'MontSerrat',
                     ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(top: 14.0),
-                     
+                       contentPadding: EdgeInsets.only(top: 74.0, left: 84.0),
+
                       hintText: 'Tap to Add your Image',
                       hintStyle: kHintTextStyle,
                     ),
+                    onTap: () {
+                      pickImage();
+                     },
                     minLines: 7,
                     maxLines: 7,
                   ),
@@ -92,19 +124,18 @@ class _EnterTasksState extends State<EnterTasks> {
               ],
             ),
 
-            SizedBox(height: 16),
-           Column(
+            // SizedBox(height: 16),
+            Column(
               children: [
-                
-                 const Align(
-      alignment: Alignment.centerLeft,
-      
-      
-        child:  Text('addImage',
-        style: TextStyle(color: Color(0xFF0C0D0D),),
-        ),
-
-        ),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'addImage',
+                    style: TextStyle(
+                      color: Color(0xFF0C0D0D),
+                    ),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
                       top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
@@ -121,27 +152,24 @@ class _EnterTasksState extends State<EnterTasks> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(top: 14.0),
-                     
                       hintText: 'Tap to Add your Image',
                       hintStyle: kHintTextStyle,
                     ),
-                   
                   ),
                 ),
               ],
             ),
-           Column(
+            Column(
               children: [
-                
                 const Align(
-      alignment: Alignment.centerLeft,
-      
-      
-        child:  Text('addImage',
-        style: TextStyle(color: Color(0xFF0C0D0D),),
-        ),
-
-        ),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'addImage',
+                    style: TextStyle(
+                      color: Color(0xFF0C0D0D),
+                    ),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
                       top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
@@ -158,7 +186,6 @@ class _EnterTasksState extends State<EnterTasks> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(top: 14.0),
-                     
                       hintText: 'Tap to Add your Image',
                       hintStyle: kHintTextStyle,
                     ),
@@ -170,16 +197,15 @@ class _EnterTasksState extends State<EnterTasks> {
             ),
             Column(
               children: [
-               
-                 const Align(
-      alignment: Alignment.centerLeft,
-      
-      
-        child:  Text('addImage',
-        style: TextStyle(color: Color(0xFF0C0D0D),),
-        ),
-
-        ),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'addImage',
+                    style: TextStyle(
+                      color: Color(0xFF0C0D0D),
+                    ),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
                       top: 10.0, bottom: 10.0, right: 20.0, left: 20.0),
@@ -196,7 +222,6 @@ class _EnterTasksState extends State<EnterTasks> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(top: 14.0),
-                     
                       hintText: 'Tap to Add your Image',
                       hintStyle: kHintTextStyle,
                     ),
@@ -206,7 +231,7 @@ class _EnterTasksState extends State<EnterTasks> {
                 ),
               ],
             ),
-            
+
             Row(
               children: [
                 Container(
@@ -216,6 +241,7 @@ class _EnterTasksState extends State<EnterTasks> {
                   child: RaisedButton(
                     color: const Color(0xFF0C0D0D),
                     onPressed: () {
+                      
                       Navigator.push(
                           context,
                           MaterialPageRoute(
